@@ -2,6 +2,20 @@
 
 Autonomous::Autonomous() {
 	// Add Commands here:
+
+	AddSequential(new Forward());
+	//don't know why it's not finding this because I included WPILib
+	AddSequential(new Turn(90));
+	AddSequential(new DriveUntilTarget());
+	AddSequential(new Turn(-90));
+	// I need to fix the turn values
+	AddSequential(new Forward());
+	AddSequential(new Park());
+	AddSequential(new DriveUntilWall());
+	AddSequential(new PushTarget());
+	//autonomous stops after this
+
+
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.

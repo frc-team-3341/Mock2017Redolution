@@ -1,8 +1,10 @@
 #include "Turn.h"
 
-Turn::Turn() {
+Turn::Turn(double inAngle) : angle(inAngle) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
+	//will require gyro
+	//not sure about the inAngle part... that needs to be fixed
 }
 
 // Called just before this Command runs the first time
