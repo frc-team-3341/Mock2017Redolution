@@ -3,6 +3,7 @@
 ExtendLeadScrew::ExtendLeadScrew() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
+	//this will require the main bag motor
 }
 
 // Called just before this Command runs the first time

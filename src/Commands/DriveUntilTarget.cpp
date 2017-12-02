@@ -5,6 +5,15 @@ DriveUntilTarget::DriveUntilTarget() {
 	// eg. Requires(Robot::chassis.get());
 }
 
+bool DriveUntilTarget::TargetFound()
+{
+	if(CVStatus.equals("vertical"))
+	{
+		return true;
+		//.equals is not the right method but I don't know what it is in C ++
+	}
+}
+
 // Called just before this Command runs the first time
 void DriveUntilTarget::Initialize() {
 
