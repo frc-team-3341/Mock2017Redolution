@@ -10,6 +10,7 @@
 class DriveTrain: public Subsystem {
 private:
 
+	Ultrasonic* sonic;
 	CANTalon* left;
 	CANTalon* right;
 	int ticksToDistance;
@@ -26,6 +27,9 @@ public:
 	int getMult();
 	void arcadeDrive(float move, float rotate);
 	void tankDrive(float moveValueLeft, float moveValueRight);
+	void ultraSetup();
+	double getUltra();
+
 
 	double getDistance();
 

@@ -12,7 +12,8 @@
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
 DriveTrain::DriveTrain() :
-		Subsystem("DriveTrain"), left(new CANTalon(LEFT_MOTOR_PORT)), right(new CANTalon(RIGHT_MOTOR_PORT)), mult(1.0), ticksToDistance(114)  { // 112 < ticksToDistance < 117
+		Subsystem("DriveTrain"), left(new CANTalon(LEFT_MOTOR_PORT)), right(new CANTalon(RIGHT_MOTOR_PORT)), mult(1.0), ticksToDistance(114)
+		sonic(new Ultrasonic(ULTRA_ECHO, ULTRA_TRIGGER)){ // 112 < ticksToDistance < 117
 
 	//left->SetInverted(true);
 	//right->SetInverted(true);
@@ -21,6 +22,7 @@ DriveTrain::DriveTrain() :
 DriveTrain::~DriveTrain() {
 	delete left;
 	delete right;
+	delete sonic;
 }
 
 void DriveTrain::reverseDrive(){
@@ -114,4 +116,14 @@ void DriveTrain::setSpeedLeft(double speed) {
 
 void DriveTrain::setSpeedRight(double speed) {
 	right->Set(speed * mult);
+}
+
+void DriveTrain::ultraSetup()
+{
+	sonic -> SetAutomaticMode(true);
+}
+
+double DriveTrain::getUltra()
+{
+	return (sonic -> GetRangeInches());
 }

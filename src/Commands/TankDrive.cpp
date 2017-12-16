@@ -25,9 +25,9 @@ double TankDrive::mapToCubic(double a, double b, double signal) {
 	double control;
 
 	if (signal > 0)
-		control = b + (1 - b) * ((a * pow(signal, 3) + (1 - a) * signal));
+		control = b + (1 - b) * ((a * (signal * signal * signal) + (1 - a) * signal));
 	else
-		control = -b + (1 - b) * ((a * pow(signal, 3) + (1 - a) * signal));
+		control = -b + (1 - b) * ((a * (signal * signal * signal) + (1 - a) * signal));
 
 	return control;
 }
